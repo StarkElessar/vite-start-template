@@ -1,0 +1,25 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.menu {
+	&__list {
+		display: flex;
+		gap: rem(10);
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__link {
+		display: block;
+		padding: rem(10) rem(12);
+		transition: color var(--fa-transition, 0.25s ease-in-out);
+
+		@include any-hover {
+			color: var(--fa-primary-color, #0071e3);
+		}
+
+		&:active {
+			color: var(--fa-primary-color-active, #0367cb);
+		}
+	}
+}

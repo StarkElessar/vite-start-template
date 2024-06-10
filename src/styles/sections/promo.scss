@@ -1,0 +1,65 @@
+@import "@styles/config/mixins";
+
+.promo {
+	min-height: rem(650);
+
+	&__video {
+		min-height: rem(550);
+	}
+
+	&__promo-card {
+		isolation: isolate;
+		transform: translateY(-50%);
+	}
+}
+
+.promo-card {
+	display: flex;
+	gap: rem(40) rem(20);
+	flex-wrap: wrap;
+	align-items: center;
+	background-color: var(--fa-bg-color-1, #fff);
+
+	&__title {
+		@include media-mn(1140) {
+			max-inline-size: rem(550);
+		}
+	}
+
+	&__body {
+		@include media-mn(1140) {
+			max-inline-size: rem(445);
+		}
+	}
+
+	&__actions {
+		display: flex;
+		gap: rem(15);
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		&:not(:last-child) {
+			margin-block-end: rem(20);
+		}
+	}
+
+	&__button {
+		flex: 1 1 auto;
+		@include media-mx(1140) {
+			inline-size: 100%;
+		}
+	}
+
+	@include media-mn(1140) {
+		justify-content: space-between;
+	}
+
+	@include media-mx(1250) {
+		border-radius: rem(20);
+		padding: rem(40);
+	}
+
+	@media only screen and (min-width: em(640)) and (max-width: em(1140 - 0.02)) {
+		justify-content: center;
+	}
+}

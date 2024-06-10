@@ -1,0 +1,44 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.breadcrumbs {
+	&__list {
+		display: flex;
+		overflow-block: hidden;
+		flex-wrap: wrap;
+		overflow-inline: auto;
+		overscroll-behavior-inline: none;
+		scrollbar-gutter: stable;
+		gap: rem(7) rem(5);
+	}
+
+	&__item {
+		display: flex;
+		flex-wrap: nowrap;
+		white-space: nowrap;
+
+		&:not(:last-child) {
+			&::after {
+				content: "";
+				background-image: url(/public/icons/chevron.svg);
+				background-repeat: no-repeat;
+				background-position: center center;
+				margin-left: rem(5);
+				width: rem(20);
+				height: rem(20);
+			}
+		}
+	}
+
+	&__link {
+		transition: color var(--fa-transition);
+
+		@include any-hover {
+			color: var(--fa-primary-color-hover);
+		}
+
+		&:active {
+			color: var(--fa-primary-color-active);
+		}
+	}
+}

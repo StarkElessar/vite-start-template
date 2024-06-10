@@ -1,0 +1,82 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.accordion {
+	&__item {
+		&:not(:last-child) {
+			border-bottom: rem(1) solid var(--fa-default-button-border-color);
+		}
+	}
+
+	&__header {
+		cursor: pointer;
+		padding-block: rem(20);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: transparent;
+		user-select: none;
+		transition: color var(--fa-transition), background-color var(--fa-transition);
+
+		@include any-hover {
+			background-color: rgba(#000, 3%);
+			color: var(--fa-primary-color-hover);
+		}
+
+		&:active {
+			background-color: rgba(#000, 5%);
+			color: var(--fa-primary-color-active);
+		}
+
+		.open & {
+			color: var(--fa-primary-color);
+		}
+
+		svg {
+			transition: rotate var(--fa-transition);
+			width: rem(24);
+			height: rem(24);
+			rotate: 90deg;
+
+			.open & {
+				rotate: -90deg;
+			}
+		}
+	}
+
+	&__animation-wrapper {
+		display: grid;
+		grid-template-rows: 0fr;
+		overflow: hidden;
+		transition: grid-template-rows var(--fa-transition);
+
+		.open & {
+			grid-template-rows: 1fr;
+		}
+	}
+
+	&__animation {
+		min-height: 0;
+	}
+
+	&__transform-wrapper {
+		transform: translateY(-100%);
+		visibility: hidden;
+		transition: transform var(--fa-transition), visibility 0s var(--fa-transition);
+
+		.open & {
+			transform: translateY(0);
+			visibility: visible;
+			transition: transform var(--fa-transition), visibility 0s linear;
+		}
+	}
+
+	&__content {
+		padding-bottom: 0;
+		transition: padding-bottom var(--fa-transition);
+
+		.open & {
+			padding-bottom: rem(20);
+		}
+	}
+}

@@ -1,0 +1,13 @@
+@import "@styles/config/mixins";
+
+.can-save-module {
+	&__box {
+		@include media-mn(1000) {
+			background-color: var(--fa-background-section-1);
+		}
+	}
+
+	&__title {
+		margin-bottom: rem(60);
+	}
+}

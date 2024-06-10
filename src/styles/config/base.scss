@@ -1,0 +1,61 @@
+@import "mixins";
+@import "animation-keyframes";
+
+.wrapper {
+	display: flex;
+	min-block-size: 100%;
+	overflow: clip;
+	flex-direction: column;
+}
+
+.page {
+	flex-grow: 1;
+}
+
+.container {
+	margin-inline: auto;
+	max-inline-size: rem(1380);
+	padding-inline: rem(20);
+}
+
+.box {
+	&_white {
+		background-color: var(--fa-white-color);
+	}
+
+	&_black {
+		background-color: var(--fa-black-color);
+	}
+
+	&_gray {
+		background-color: var(--fa-background-section-1);
+	}
+
+	&_bordered {
+		border: rem(1) solid #ccc;
+	}
+
+	@include media-mn(1000) {
+		border-radius: var(--fa-radius-lg);
+		padding: rem(80);
+
+		&_small {
+			border-radius: rem(20);
+			padding-block: rem(40);
+		}
+	}
+}
+
+.bg-cover {
+	position: relative;
+	overflow: hidden;
+
+	video,
+	img {
+		position: absolute;
+		inset: 0;
+		object-fit: cover;
+		block-size: 100%;
+		inline-size: 100%;
+	}
+}

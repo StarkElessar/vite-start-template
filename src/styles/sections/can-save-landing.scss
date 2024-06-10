@@ -1,0 +1,15 @@
+@import "@styles/config/mixins";
+
+.can-save-landing {
+	background-color: var(--fa-background-section-1);
+
+	&__box {
+		@include media-mn(1000) {
+			background-color: #fff;
+		}
+	}
+
+	&__title {
+		margin-bottom: rem(60);
+	}
+}

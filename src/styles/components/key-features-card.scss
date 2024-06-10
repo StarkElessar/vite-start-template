@@ -1,0 +1,52 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.key-features-card {
+	display: flex;
+	max-width: rem(560);
+	align-items: center;
+	gap: rem(40);
+
+	&:not(.key-features-card_bubble) {
+		@include media-mx(940) {
+			flex-direction: row;
+		}
+
+		@include media-mx(480) {
+			flex-direction: column;
+			align-items: start;
+			gap: rem(20);
+		}
+	}
+
+	&_reverse {
+		flex-direction: row-reverse;
+	}
+
+	&_bubble {
+		// max-width: rem(380);
+		gap: rem(20);
+		border-radius: var(--fa-radius-md);
+		padding: rem(20);
+		background-color: var(--fa-white-color);
+	}
+
+	&__icon {
+		background-color: var(--fa-black-color);
+		border-radius: var(--fa-radius-md);
+		display: flex;
+		flex: 0 0 rem(60);
+		justify-content: center;
+		align-items: center;
+		width: rem(60);
+		height: rem(60);
+	}
+
+	&__text {
+		max-width: rem(460);
+
+		.key-features-card_bubble & {
+			max-width: rem(240);
+		}
+	}
+}

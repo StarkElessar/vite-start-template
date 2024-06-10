@@ -1,0 +1,59 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.integration {
+	@include media-mn(1000) {
+		background-color: var(--fa-background-section-1);
+	}
+
+	&__section-white {
+		padding-block: rem(120) rem(40);
+
+		@include media-mx(1000) {
+			padding-bottom: rem(120);
+		}
+	}
+
+	&__section-blue {
+		padding-block: rem(40) rem(120);
+
+		@include media-mx(1000) {
+			padding-top: rem(120);
+			background-color: var(--fa-background-box-1);
+
+			.cta {
+				background-color: transparent;
+			}
+		}
+	}
+
+	&__box-white {
+		background-color: #fff;
+	}
+
+	&__head {
+		display: flex;
+
+		@include media-mn(640) {
+			gap: rem(40);
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		@include media-mx(640) {
+			flex-direction: column;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: rem(60);
+		}
+	}
+
+	&__title {
+		@include media-mx(640) {
+			&:not(:last-child) {
+				margin-bottom: rem(60);
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+@import "@styles/config/mixins";
+
+.subscribe-form {
+	display: flex;
+	flex-direction: column;
+	gap: rem(20);
+
+	&.hidden {
+		display: none;
+	}
+
+	&__block {
+		display: flex;
+		gap: rem(20);
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__input {
+		flex: 1 0 rem(150);
+	}
+
+	&__button {
+		flex: 1 0 rem(150);
+	}
+}

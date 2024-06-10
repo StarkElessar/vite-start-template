@@ -1,0 +1,78 @@
+@import "@styles/config/mixins";
+
+.rainbow {
+	padding-bottom: rem(120);
+
+	@include media-mx(600) {
+		padding-bottom: rem(100);
+		margin-top: rem(-60);
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__cover {
+		@include media-mn(1000) {
+			max-width: 100%;
+		}
+
+		@include media-mx(1000) {
+			display: none;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: rem(60);
+
+		@include media-mn(1200) {
+			bottom: 10%;
+		}
+
+		@include media-mn(1000) {
+			max-width: rem(580);
+			position: absolute;
+			left: 50%;
+			bottom: 5%;
+			transform: translateX(-50%);
+		}
+
+		@include media-mx(1200) {
+			gap: rem(40);
+		}
+	}
+
+	&__icon {
+		color: var(--fa-primary-color);
+
+		@include media-mn(1000) {
+			align-self: center;
+		}
+	}
+
+	&__text {
+		@include media-mn(1000) {
+			text-align: center;
+		}
+	}
+
+	&__placeholders {
+		display: none;
+
+		@include media-mx(1000) {
+			margin-top: rem(40);
+			display: flex;
+			flex-wrap: wrap;
+			gap: rem(20);
+		}
+	}
+
+	&__placeholder {
+		border-radius: rem(10);
+		max-width: max-content;
+		padding: rem(14) rem(20);
+		box-shadow: 0 0 rem(4) rgba(#000, 15%);
+	}
+}

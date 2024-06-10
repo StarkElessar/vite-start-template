@@ -1,0 +1,58 @@
+@import "@styles/config/mixins";
+
+.italic {
+	font-style: italic;
+}
+
+.regular {
+	font-weight: 400;
+}
+
+.medium {
+	font-weight: 500;
+}
+
+.semi-bold {
+	font-weight: 600;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.display-text,
+.text {
+	color: var(--fa-default-text-color, #000);
+}
+
+.display-text {
+	&_lg {
+		line-height: prc(60, 48);
+		font-size: rem(48);
+
+		@include media-mx(1140) {
+			font-size: rem(36);
+		}
+	}
+
+	&_sm {
+		line-height: prc(32, 24);
+		font-size: rem(24);
+	}
+}
+
+.text {
+	&_lg {
+		line-height: prc(24, 18);
+		font-size: rem(18);
+	}
+
+	&_md {
+		line-height: prc(20, 16);
+		font-size: rem(16);
+	}
+
+	&_gray {
+		color: var(--fa-gray-text-color);
+	}
+}

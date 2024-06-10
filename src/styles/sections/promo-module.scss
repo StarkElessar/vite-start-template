@@ -1,0 +1,76 @@
+@import "@styles/config/mixins";
+
+.promo-module {
+	@include media-mx(1000) {
+		background-color: var(--fa-background-section-1);
+	}
+
+	&__box {
+		@include media-mn(1000) {
+			background-color: var(--fa-background-section-1);
+		}
+	}
+
+	&__row {
+		display: flex;
+		flex-direction: row-reverse;
+		gap: rem(40);
+
+		@include media-mn(1000) {
+			background-color: var(--fa-background-section-1);
+		}
+
+		@include media-mx(1000) {
+			flex-direction: column;
+		}
+	}
+
+	&__breadcrumbs {
+		margin-bottom: rem(40);
+	}
+
+	&__cover {
+		flex: 0 1 50%;
+		overflow: hidden;
+		border-radius: rem(20);
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__description {
+		flex: 0 1 50%;
+	}
+
+	&__button {
+		@include media-mx(640) {
+			width: 100%;
+		}
+	}
+
+	&__text {
+		margin-bottom: rem(40);
+	}
+
+	&__br {
+		@include media-mx(1000) {
+			display: none;
+		}
+	}
+
+	&__items {
+		margin-top: rem(80);
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(rem(360), 1fr));
+		gap: rem(20);
+
+		@include media-mx(1000) {
+			margin-top: rem(60);
+		}
+
+		@include media-mx(600) {
+			grid-template-columns: 1fr;
+		}
+	}
+}

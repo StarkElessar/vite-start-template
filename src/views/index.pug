@@ -1,0 +1,18 @@
+extends layouts/base
+
+//- Place to connect a variables:
+block vars
+	- pageTitle = 'Home Page'
+	include vars/links
+
+//- Place to connect the header
+block header
+	a(href=data.phone.href) #{data.phone.text}
+
+//- Place to connect content of the page:
+block contentPage
+	main.page
+		include sections/promo-landing
+
+//- Place to connect the footer:
+block footer

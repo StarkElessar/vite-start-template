@@ -1,0 +1,24 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.test-service {
+	background-color: var(--fa-background-section-1);
+
+	@include media-mx(1000) {
+		background-color: var(--fa-background-box-1);
+	}
+
+	&_white {
+		@include media-mn(1000) {
+			background-color: #fff;
+		}
+	}
+
+	&_wp {
+		@include media-mx(1000) {
+			.container {
+				padding: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.ai-modules {
+	@include media-mx(1000) {
+		background-color: var(--fa-black-color);
+	}
+
+	&__title {
+		color: var(--fa-white-color);
+
+		&:not(:last-child) {
+			margin-bottom: rem(60);
+		}
+	}
+
+	&__list {
+		> * {
+			&:not(:last-child) {
+				padding-bottom: rem(40);
+				border-bottom: rem(1) solid var(--fa-white-color);
+				margin-bottom: rem(40);
+			}
+		}
+	}
+}

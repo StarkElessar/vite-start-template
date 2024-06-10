@@ -1,0 +1,198 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.button {
+	border-style: solid;
+	justify-content: center;
+	display: inline-flex;
+	align-items: center;
+	border-width: rem(1);
+	border-radius: var(--fa-default-radius, #{rem(8)});
+	font-weight: 600;
+	transition:
+		background-color var(--fa-transition),
+		border-color var(--fa-transition),
+		color var(--fa-transition);
+
+	&:disabled {
+		opacity: 0.7;
+	}
+
+	&_primary {
+		border-color: transparent;
+		color: #fff;
+		background-color: var(--fa-primary-color, #0071e3);
+
+		&:not(:disabled) {
+			@include any-hover {
+				background-color: var(--fa-primary-color-hover, #1180f6);
+			}
+
+			&:active {
+				background-color: var(--fa-primary-color-active, #0367cb);
+			}
+		}
+	}
+
+	&_secondary {
+		border-color: transparent;
+		color: #000;
+		background-color: #fff;
+
+		&:not(:disabled) {
+			@include any-hover {
+				color: var(--fa-primary-color);
+				background-color: color-mix(in srgb, #fff, #000 5%);
+			}
+
+			&:active {
+				color: var(--fa-primary-color-active);
+				background-color: color-mix(in srgb, #fff, #000 10%);
+			}
+		}
+	}
+
+	&_smoke {
+		background-color: rgb(255 255 255 / 10%);
+		color: var(--fa-white-color);
+		border-color: transparent;
+
+		&:not(:disabled) {
+			@include any-hover {
+				color: var(--fa-primary-color-hover);
+			}
+
+			&:active {
+				color: var(--fa-primary-color-active);
+			}
+		}
+	}
+
+	&_default {
+		border-color: var(--fa-default-button-border-color, #ccc);
+		color: var(--fa-primary-color, #0071e3);
+		background-color: var(--fa-default-button-color-bg, #fff);
+
+		&:not(:disabled) {
+			@include any-hover {
+				background-color: var(--fa-default-button-color-bg-hover);
+			}
+
+			&:active {
+				background-color: var(--fa-default-button-color-bg-active);
+			}
+		}
+	}
+
+	&_transparent {
+		background-color: transparent;
+		color: var(--fa-white-color);
+
+		&:not(:disabled) {
+			@include any-hover {
+				background-color: transparent;
+				border-color: var(--fa-primary-color-hover);
+				color: var(--fa-primary-color-hover);
+			}
+
+			&:active {
+				background-color: transparent;
+				border-color: var(--fa-primary-color-active);
+				color: var(--fa-primary-color-active);
+			}
+		}
+	}
+
+	&_large {
+		padding: rem(14) rem(20);
+		line-height: prc(24, 18);
+		font-size: rem(18);
+	}
+
+	&_small {
+		padding: rem(10) rem(12);
+		line-height: prc(20, 16);
+		font-size: rem(16);
+	}
+}
+
+.controls {
+	display: flex;
+
+	@include media-mx(640) {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	&__swipe {
+		img {
+			height: rem(52);
+			width: rem(52);
+			mix-blend-mode: exclusion;
+			opacity: 20%;
+		}
+
+		@include media-mn(640) {
+			display: none;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		gap: rem(10);
+	}
+
+	&__control {
+	}
+}
+
+.control {
+	padding: rem(14);
+	border-radius: var(--fa-default-radius);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: rem(1) solid var(--fa-default-button-border-color);
+
+	&:not(.swiper-button-disabled) {
+		@include any-hover {
+			svg {
+				color: var(--fa-primary-color-hover);
+			}
+		}
+
+		&:active {
+			color: var(--fa-primary-color-active);
+		}
+	}
+
+	svg {
+		transition: color var(--fa-transition);
+		height: rem(24);
+		width: rem(24);
+	}
+
+	&_reverse {
+		rotate: 180deg;
+	}
+
+	&_transparent {
+		border: none;
+		background-color: rgb(255 255 255 / 10%);
+		transition: background-color var(--fa-transition);
+
+		svg {
+			color: var(--fa-white-color);
+		}
+
+		&:not(.swiper-button-disabled) {
+			@include any-hover {
+				background-color: rgb(255 255 255 / 40%);
+			}
+
+			&:active {
+				background-color: var(--fa-primary-color-active);
+			}
+		}
+	}
+}

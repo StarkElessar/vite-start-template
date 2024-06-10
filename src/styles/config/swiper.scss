@@ -1,0 +1,46 @@
+@import "mixins";
+
+.swiper {
+	@include media-mn(1000) {
+		overflow: hidden;
+	}
+}
+
+.swiper-wrapper {
+	position: relative;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	box-sizing: content-box;
+}
+
+.swiper-vertical {
+	.swiper-wrapper {
+		flex-direction: column;
+	}
+}
+
+.swiper-autoheight {
+	.swiper-wrapper {
+		align-items: flex-start;
+	}
+}
+
+.swiper-initialized {
+	touch-action: pan-y;
+
+	.swiper-slide {
+		flex-shrink: 0;
+	}
+}
+
+.swiper-android {
+	.swiper-slide,
+	.swiper-wrapper {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.swiper-button-lock {
+	display: none;
+}

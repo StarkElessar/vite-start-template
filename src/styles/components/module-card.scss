@@ -1,0 +1,35 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.module-card {
+	&__img {
+		border-radius: var(--fa-radius-md);
+		background-color: rgb(255 255 255 / 10%);
+		aspect-ratio: 16 / 9;
+
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+	}
+
+	&__title {
+		color: var(--fa-white-color);
+
+		&:not(:last-child) {
+			margin-bottom: rem(10);
+		}
+	}
+
+	&__text {
+		color: var(--fa-white-color);
+
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+
+	&__actions {
+		display: flex;
+		gap: rem(10);
+	}
+}

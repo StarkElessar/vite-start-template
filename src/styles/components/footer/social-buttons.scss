@@ -1,0 +1,30 @@
+@import "@styles/config/mixins";
+
+.social-buttons {
+	--fa-size-link: #{rem(50)};
+	--fa-background-link: #2e2e2e;
+
+	display: flex;
+	gap: rem(10);
+	flex-wrap: wrap;
+
+	&__link {
+		display: flex;
+		border-radius: var(--fa-default-radius);
+		block-size: var(--fa-size-link);
+		inline-size: var(--fa-size-link);
+		align-items: center;
+		justify-content: center;
+		color: var(--fa-default-text-color);
+		background-color: var(--fa-background-link);
+		transition: background-color var(--fa-transition);
+
+		@include any-hover {
+			background-color: color-mix(in srgb, var(--fa-background-link), #fff 5%);
+		}
+
+		&:active {
+			background-color: color-mix(in srgb, var(--fa-background-link), #fff 15%);
+		}
+	}
+}

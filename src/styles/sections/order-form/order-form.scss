@@ -1,0 +1,76 @@
+@import "@styles/config/mixins";
+
+.order-form {
+	--fa-default-text-color: #fff;
+
+	background-color: var(--fa-background-section-1);
+
+	&__box {
+		position: relative;
+		background-color: var(--fa-background-box-1);
+	}
+
+	&__title {
+		max-inline-size: rem(780);
+	}
+
+	&__description {
+		margin-block-end: rem(40);
+		max-inline-size: rem(480);
+	}
+
+	&__form {
+		$padding: 40;
+		--fa-input-border-color: #ccc;
+		--fa-input-default-text-color: #333;
+		--fa-input-background-color: #ccc;
+
+		padding: rem($padding);
+		background-color: #fff;
+		border-radius: var(--fa-radius-md);
+
+		@include media-mn(960) {
+			max-inline-size: rem(380 + $padding);
+		}
+
+		@include media-mx(600) {
+			padding: rem(25);
+		}
+	}
+
+	&__button {
+		@include media-mx(460) {
+			width: 100%;
+		}
+	}
+
+	&__image {
+		block-size: auto;
+		mix-blend-mode: screen;
+
+		@include media-mn(960) {
+			position: absolute;
+			inset-inline-end: 0;
+			inset-block-start: 50%;
+			transform: translateY(-50%);
+		}
+
+		@include media-mx(1150) {
+			max-inline-size: rem(500);
+		}
+
+		@include media-mx(960) {
+			display: block;
+			margin-inline: auto;
+			max-inline-size: 100%;
+		}
+	}
+
+	@include media-mx(1250) {
+		background-color: var(--fa-background-box-1);
+
+		.order-form__box {
+			background-color: transparent;
+		}
+	}
+}

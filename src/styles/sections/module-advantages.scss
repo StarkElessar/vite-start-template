@@ -1,0 +1,72 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.module-advantages {
+	@include media-mn(1000) {
+		background-color: var(--fa-background-section-1);
+	}
+
+	@include media-mx(1000) {
+		background-color: var(--fa-black-color);
+	}
+
+	&__box {
+		--fa-default-text-color: #fff;
+
+		&:not(:last-child) {
+			margin-bottom: rem(80);
+		}
+	}
+
+	&__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		@include media-mx(640) {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: rem(60);
+		}
+	}
+
+	&__title {
+		color: var(--fa-white-color);
+
+		@include media-mx(640) {
+			&:not(:last-child) {
+				margin-bottom: rem(60);
+			}
+		}
+	}
+}
+
+.key-advantages {
+	&__sub-title {
+		@include media-mx(1000) {
+			color: var(--fa-white-color);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+	&__cards {
+		display: grid;
+		gap: rem(20);
+
+		@include media-mn(480) {
+			grid-template-columns: repeat(auto-fill, minmax(rem(380), 1fr));
+		}
+	}
+	&__card {
+		max-width: 100%;
+
+		.key-features-card__text {
+			max-width: 100%;
+		}
+	}
+}

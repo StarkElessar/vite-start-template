@@ -1,0 +1,31 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.call-type-card {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	border: rem(1) solid var(--fa-default-button-border-color);
+	border-radius: var(--fa-radius-md);
+	padding: rem(40);
+	gap: rem(20);
+
+	@include media-mx(640) {
+		align-items: start;
+		flex-direction: column;
+	}
+
+	&__icon {
+		flex: 0 0 rem(60);
+		width: rem(60);
+		height: rem(60);
+
+		img {
+			mix-blend-mode: multiply;
+		}
+	}
+
+	&__text {
+		flex: 1 1 auto;
+	}
+}

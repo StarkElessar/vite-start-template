@@ -1,0 +1,32 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.integrate-system-card {
+	background-color: var(--fa-white-color);
+	border-radius: var(--fa-radius-md);
+	border: rem(1) solid var(--fa-default-button-border-color);
+
+	&__img {
+		padding: rem(20);
+		height: rem(170);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+
+		img {
+			max-width: rem(260);
+		}
+	}
+
+	&__body {
+		border-top: rem(1) solid var(--fa-default-button-border-color);
+		padding: rem(40);
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+	}
+}

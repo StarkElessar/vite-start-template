@@ -1,0 +1,48 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.demo {
+	$this: &;
+
+	&_gray {
+		background-color: var(--fa-background-section-1);
+	}
+
+	&_white {
+		--fa-default-text-color: #fff;
+
+		background-color: #fff;
+
+		@include media-mx(1000) {
+			background-color: #000;
+		}
+	}
+
+	&__box {
+		#{$this}_gray & {
+			@include media-mn(1000) {
+				background-color: #fff;
+			}
+		}
+
+		#{$this}_white & {
+			@include media-mn(1000) {
+				background-color: #000;
+			}
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: rem(60);
+		}
+	}
+
+	&__video {
+		position: relative;
+		padding-bottom: prc(9, 16);
+		background-color: #ccc;
+		overflow: hidden;
+		border-radius: var(--fa-radius-md);
+	}
+}

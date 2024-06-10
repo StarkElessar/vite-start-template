@@ -1,0 +1,104 @@
+@import "@styles/config/mixins";
+
+.noUi-target,
+.noUi-target * {
+	box-sizing: border-box;
+	user-select: none;
+}
+
+.noUi-base,
+.noUi-connects {
+	width: 100%;
+	height: 100%;
+}
+
+.noUi-connects {
+	position: relative;
+	cursor: pointer;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: rem(20);
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+/* Wrapper for all connect elements. */
+.noUi-connect,
+.noUi-origin {
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+	right: 0;
+	top: 0;
+	transform-origin: 0 0;
+	will-change: transform;
+}
+
+.noUi-connect {
+	background: var(--fa-primary-color);
+}
+
+/* Give origins 0 height/width so they don't interfere with clicking the * connect elements. */
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+	transition: transform 0.3s;
+}
+
+/* Slider size and handle placement; */
+.noUi-horizontal {
+	height: rem(3);
+}
+
+.noUi-handle {
+	position: absolute;
+	border-radius: 50%;
+	background-color: var(--fa-primary-color);
+	backface-visibility: hidden;
+	transition: background-color 0.1s;
+	cursor: grab;
+
+	@include any-hover {
+		background-color: var(--fa-primary-color-hover);
+	}
+
+	&:active {
+		background-color: var(--fa-primary-color-active);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: rem(30);
+		height: rem(30);
+		background-color: transparent;
+	}
+}
+
+.noUi-horizontal .noUi-handle {
+	width: rem(20);
+	height: rem(20);
+
+	right: rem(-10);
+	top: rem(-8);
+}
+
+/* Styling; * Giving the connect element a border radius causes issues with using transform: scale */
+.noUi-target {
+	position: relative;
+	border-radius: rem(2);
+	background-color: rgba(#000, 20%);
+}
+
+.noUi-active {
+	background-color: var(--fa-primary-color-active);
+	cursor: grabbing;
+}

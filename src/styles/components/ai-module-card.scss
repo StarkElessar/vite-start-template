@@ -1,0 +1,72 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.ai-module-card {
+	display: flex;
+	max-width: rem(1080);
+	gap: rem(40);
+	align-items: center;
+	justify-content: space-between;
+
+	@include media-mx(1115) {
+		flex-wrap: wrap;
+	}
+
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		gap: rem(20);
+
+		@include media-mn(940) {
+			width: rem(480);
+		}
+		@include media-mx(940) {
+			width: 100%;
+		}
+
+		@include media-mx(940) {
+			flex-direction: row-reverse;
+		}
+
+		@include media-mx(440) {
+			flex-direction: column;
+		}
+	}
+
+	&__meta {
+		display: flex;
+		flex-direction: column;
+		@include media-mn(420) {
+			width: rem(340);
+		}
+		gap: rem(20);
+	}
+
+	&__number {
+		text-wrap: nowrap;
+		color: transparent;
+		-webkit-text-stroke: rem(1) var(--fa-white-color);
+	}
+
+	&__title {
+		color: var(--fa-white-color);
+		max-width: rem(325);
+	}
+
+	&__actions {
+		display: flex;
+		gap: rem(10);
+	}
+
+	&__button {
+		flex: 1 1 auto;
+	}
+
+	&__text {
+		color: var(--fa-white-color);
+
+		@include media-mn(1115) {
+			max-width: rem(460);
+		}
+	}
+}

@@ -1,0 +1,71 @@
+@import "@styles/config/mixins";
+
+.burger-button {
+	--fa-burger-border-color: #2e2d2c;
+	--fa-burger-line-color: #fff;
+
+	@include media-mn(900) {
+		display: none;
+	}
+
+	@include media-mx(900) {
+		position: relative;
+		width: rem(42);
+		height: rem(42);
+		border: rem(1) solid var(--fa-burger-border-color);
+		border-radius: var(--fa-default-radius);
+		transition:
+			border-color var(--fa-transition),
+			background-color var(--fa-transition);
+
+		@include any-hover {
+			background-color: color-mix(in srgb, var(--fa-burger-line-color), transparent 95%);
+		}
+
+		&:active {
+			background-color: color-mix(in srgb, var(--fa-burger-line-color), transparent 90%);
+		}
+
+		.burger-menu-open & {
+			&::before {
+				top: 50%;
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+
+			&::after {
+				top: 50%;
+				bottom: unset;
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+
+		.header-reverse & {
+			--fa-burger-border-color: #e6e6e6;
+			--fa-burger-line-color: #000;
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			width: rem(18);
+			height: rem(2);
+			left: 50%;
+			transform: translateX(-50%);
+			border-radius: rem(2);
+			background-color: var(--fa-burger-line-color);
+			transition:
+				transform var(--fa-transition),
+				background-color var(--fa-transition);
+			transform-origin: center;
+		}
+
+		&::before {
+			top: rem(15);
+		}
+
+		&::after {
+			bottom: rem(15);
+		}
+	}
+}

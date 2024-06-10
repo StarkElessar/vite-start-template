@@ -1,0 +1,20 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.we-tech-use {
+	@include media-mx(1000) {
+		background-color: var(--fa-background-section-1);
+	}
+
+	&__box {
+		@include media-mn(1000) {
+			background-color: var(--fa-background-section-1);
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: rem(60);
+		}
+	}
+}

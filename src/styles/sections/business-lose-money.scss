@@ -1,0 +1,63 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.business-lose-money {
+	background-color: var(--fa-background-section-1);
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: rem(60);
+		}
+	}
+
+	&__box {
+		@include media-mx(1000) {
+			background-color: transparent;
+		}
+	}
+
+	&__body {
+		display: grid;
+		gap: rem(60);
+	}
+
+	&__row {
+		@include media-mn(940) {
+			display: flex;
+			gap: rem(40);
+			justify-content: space-between;
+
+			&_reverse {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+
+	&__img {
+		border: rem(1) solid #ccc;
+		border-radius: var(--fa-radius-md);
+		aspect-ratio: 2 / 1.5;
+
+		@include media-mn(940) {
+			flex: 1 1 auto;
+		}
+
+		@include media-mx(940) {
+			&:not(:last-child) {
+				margin-bottom: rem(40);
+			}
+		}
+	}
+
+	&__sub-title {
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+}

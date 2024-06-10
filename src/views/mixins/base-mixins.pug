@@ -1,0 +1,3 @@
+mixin menu-links(url, name, className)
+	li.menu__item
+		a(href=url, class=`menu__link${className ? ' ' + className : ''}`) #{name}

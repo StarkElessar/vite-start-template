@@ -1,0 +1,152 @@
+@use "sass:math";
+@import "@styles/config/mixins";
+
+.header {
+	--fa-default-text-color: #fff;
+
+	z-index: 100;
+	position: fixed;
+	width: 100%;
+	padding-block: rem(20);
+	transition:
+		background-color var(--fa-transition),
+		padding-block var(--fa-transition);
+
+	@include media-mx(900) {
+		padding-block: 0;
+
+		.burger-menu-open & {
+			height: 100%;
+			background-color: rgba(#000, 40%);
+		}
+	}
+
+	.lock & {
+		padding-right: var(--fa-scrollbar-width, #{rem(17)});
+	}
+
+	.header-reverse & {
+		--fa-default-text-color: #000;
+	}
+
+	&__container {
+		@include media-mx(900) {
+			padding-inline: 0;
+		}
+	}
+
+	&__body {
+		border-radius: rem(20);
+		padding: rem(10);
+		background-color: color-mix(in srgb, #d9d9d9, transparent 90%);
+		backdrop-filter: blur(rem(100));
+		box-shadow: var(--fa-header-shadow);
+		transition:
+			background-color var(--fa-transition),
+			backdrop-filter var(--fa-transition);
+
+		@include media-mx(900) {
+			border-radius: 0 0 rem(20) rem(20);
+			padding-block: rem(20);
+			padding-inline: var(--fa-offset-inline);
+		}
+
+		.header-reverse & {
+			background-color: var(--fa-white-color);
+		}
+	}
+
+	&__inner {
+		display: flex;
+		gap: rem(10);
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__burger-menu {
+		display: none;
+
+		.burger-menu-open & {
+			@include media-mx(900) {
+				margin-top: rem(15);
+				display: flex;
+				flex-direction: column;
+				gap: rem(20);
+			}
+		}
+	}
+
+	&__logo {
+		@include media-mx(900) {
+			margin-right: auto;
+		}
+	}
+
+	&__menu {
+		@include media-mx(1024) {
+			.menu__list {
+				flex-direction: column;
+				align-items: start;
+			}
+
+			.menu__link {
+				padding-inline: 0;
+			}
+		}
+	}
+
+	&__phone {
+		margin-left: auto;
+		transition: color var(--fa-transition);
+
+		@include any-hover {
+			color: var(--fa-primary-color, #0071e3);
+		}
+
+		&:active {
+			color: var(--fa-primary-color-active, #0367cb);
+		}
+	}
+
+	&__phone-link {
+		transition: color var(--fa-transition);
+
+		@include media-mx(900) {
+			font-size: rem(24);
+			line-height: math.div(32, 24);
+			font-weight: 600;
+		}
+
+		@include any-hover {
+			color: var(--fa-primary-color, #0071e3);
+		}
+
+		&:active {
+			color: var(--fa-primary-color-active, #0367cb);
+		}
+	}
+
+	&__profile {
+		display: flex;
+		gap: rem(10);
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__order-call-button {
+		color: var(--fa-default-text-color);
+		border-color: color-mix(in srgb, var(--fa-default-text-color), transparent 90%);
+
+		@include any-hover {
+			background-color: color-mix(in srgb, var(--fa-default-text-color), transparent 95%);
+		}
+
+		&:active {
+			background-color: color-mix(in srgb, var(--fa-default-text-color), transparent 90%);
+		}
+	}
+}
+
+.logo {
+	color: var(--fa-default-text-color);
+}

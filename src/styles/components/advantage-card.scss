@@ -1,0 +1,32 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.advantage-card {
+	border-radius: var(--fa-radius-md);
+	height: 100%;
+	overflow: hidden;
+	background-color: rgb(255 255 255 / 10%);
+
+	&__img {
+		display: block;
+		aspect-ratio: 16 / 9;
+	}
+
+	&__body {
+		padding: rem(40);
+	}
+
+	&__text {
+		color: var(--fa-text-color-100);
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: rem(20);
+			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+}

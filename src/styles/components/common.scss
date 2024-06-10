@@ -1,0 +1,235 @@
+@import "@styles/config/mixins";
+
+.mb-20 {
+	margin-block-end: rem(20);
+}
+
+.mb-15 {
+	margin-block-end: rem(15);
+}
+
+.mb-10 {
+	margin-bottom: rem(10);
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.error-message {
+	flex: 0 0 max-content;
+	color: var(--fa-error-color);
+	animation: fade-up-big .3s ease-in-out forwards;
+}
+
+// Класс для отрисовки спинера во время загрузки чего либо
+.loading {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-image: url(/public/gifs/spinner.gif);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+		width: rem(40);
+		height: rem(40);
+	}
+}
+
+.input-control {
+	--fa-input-placeholder-color: color-mix(in srgb, var(--fa-input-default-text-color), transparent 40%);
+
+	@include styled-placeholder(var(--fa-input-placeholder-color));
+	@include hide-placeholder;
+	border: rem(1) solid var(--fa-input-border-color);
+	border-radius: var(--fa-default-radius);
+	inline-size: 100%;
+	padding: rem(14) rem(20);
+	line-height: prc(24, 18);
+	font-size: rem(18);
+	color: var(--fa-input-default-text-color);
+	background-color: transparent;
+	transition: var(--fa-transition);
+
+	&.invalid {
+		border-color: var(--fa-error-color);
+		color: var(--fa-error-color);
+	}
+
+	@include any-hover {
+		background-color: color-mix(in srgb, var(--fa-input-background-color), transparent 95%);
+	}
+
+	&:focus {
+		background-color: color-mix(in srgb, var(--fa-input-background-color), transparent 90%);
+		box-shadow: inset 0 0 rem(5) rgba(#000, 5%);
+	}
+}
+
+.section-space-y {
+	padding-block: rem(120);
+
+	@include media-mx(600) {
+		padding-block: rem(100);
+	}
+}
+
+.image-circle {
+	--fa-box-size: #{rem(680)};
+
+	position: relative;
+	width: var(--fa-box-size);
+	height: var(--fa-box-size);
+	background-color: #0d78e4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include media-mx(768) {
+		--fa-box-size: #{rem(500)};
+	}
+
+	@include media-mx(600) {
+		--fa-box-size: #{rem(320)};
+	}
+
+	@include media-mx(380) {
+		--fa-box-size: #{rem(280)};
+	}
+
+	&,
+	&::before,
+	&__content {
+		border-radius: 50%;
+		box-shadow: 0 0 rem(20) rgba(#000, 3%);
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 76%;
+		height: 76%;
+		background-color: #3d93e9;
+	}
+
+	&__content {
+		position: relative;
+		width: 53%;
+		height: 53%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+
+		&_contain {
+			background-color: #fff;
+			padding: rem(10);
+
+			img {
+				max-width: 80%;
+				display: block;
+				object-fit: contain;
+			}
+		}
+
+		&_cover {
+			img {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+.fa-popup {
+	$this: &;
+
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	overflow-y: auto;
+	pointer-events: none;
+	z-index: 1000;
+	background-color: rgba(#000, 90%);
+	backdrop-filter: blur(rem(5));
+	transition: opacity var(--fa-transition);
+
+	&.open {
+		opacity: 1;
+		pointer-events: auto;
+
+		#{$this}__body {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	&__overlay {
+		display: flex;
+		align-items: center;
+		padding: rem(40);
+		min-height: 100%;
+
+		@include media-mx(960) {
+			padding: rem(20);
+		}
+
+		@include media-mx(600) {
+			padding-inline: rem(10);
+		}
+	}
+
+	&__body {
+		position: relative;
+		margin-inline: auto;
+		width: 100%;
+		border-radius: var(--fa-radius-md);
+		transform: translateY(rem(-200));
+		opacity: 0;
+		transition:
+			opacity var(--fa-transition),
+			transform var(--fa-transition);
+	}
+}
+
+.popup-close-button {
+	$button-size: 40;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: rem(10);
+	width: rem($button-size);
+	height: rem($button-size);
+	border-radius: 50%;
+	color: var(--fa-default-button-color-bg);
+	background-color: var(--fa-primary-color);
+	transition: background-color var(--fa-transition);
+
+	@include any-hover {
+		background-color: var(--fa-primary-color-hover);
+	}
+
+	&:active {
+		background-color: var(--fa-primary-color-active);
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}

@@ -1,0 +1,43 @@
+@import "@styles/config/functions";
+@import "@styles/config/mixins";
+
+.useful-modules {
+	@include media-mx(1000) {
+		background-color: var(--fa-black-color);
+	}
+
+	&__title {
+		color: var(--fa-white-color);
+
+		&:not(:last-child) {
+			margin-bottom: rem(60);
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		gap: rem(20);
+
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+
+	&__cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(rem(380), 1fr));
+		gap: rem(60) rem(20);
+
+		@include media-mx(600) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__card {
+		animation: fade-up-big 0.2s ease-in-out forwards;
+
+		&.hidden {
+			display: none;
+		}
+	}
+}

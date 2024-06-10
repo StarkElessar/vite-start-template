@@ -1,0 +1,83 @@
+@import "@styles/config/mixins";
+
+.cta {
+	--fa-default-text-color: #fff;
+
+	background-color: var(--fa-background-box-1);
+	overflow: hidden;
+	position: relative;
+
+	&__body {
+		.test-service_wp & {
+			@include media-mx(1000) {
+				padding-inline: rem(20);
+			}
+		}
+
+		display: grid;
+		gap: rem(20);
+		justify-items: start;
+	}
+
+	&__title,
+	&__text {
+		position: relative;
+		max-width: rem(480);
+		z-index: 1;
+	}
+
+	&__circle-image {
+		@include media-mn(1090) {
+			position: absolute;
+			right: rem(-80);
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		@include media-mx(1090) {
+			margin-top: rem(60);
+			margin-inline: auto;
+		}
+	}
+
+	&__img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include media-mn(1090) {
+			position: absolute;
+			right: rem(290);
+			top: 50%;
+		}
+
+		@include media-mx(1090) {
+			margin-top: rem(60);
+			margin-inline: auto;
+			position: relative;
+		}
+
+		img {
+			@include media-mn(1090) {
+				position: absolute;
+			}
+
+			&:last-child {
+				@include media-mx(580) {
+					width: rem(420);
+					height: rem(350);
+				}
+			}
+
+			&:first-child {
+				@include media-mx(580) {
+					width: rem(305);
+					height: rem(185);
+				}
+
+				position: absolute;
+				z-index: 1;
+			}
+		}
+	}
+}
